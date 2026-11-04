@@ -4,7 +4,7 @@ FROM ubuntu:26.04
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
       curl ca-certificates git sudo systemd systemd-sysv openssh-server \
-      build-essential pkg-config gnupg vim unzip tzdata \
+      build-essential pkg-config gnupg vim unzip tzdata htop \
  && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Passwordless sudo for all users
