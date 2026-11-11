@@ -7,6 +7,11 @@ RUN apt-get update \
       build-essential pkg-config gnupg vim unzip tzdata htop \
  && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Install the current Node.js LTS release from NodeSource (tracks the 26.x line)
+RUN curl -fsSL https://deb.nodesource.com/setup_26.x | bash - \
+ && apt-get install -y --no-install-recommends nodejs \
+ && apt-get clean && rm -rf /var/lib/apt/lists/*
+
 # Passwordless sudo for all users
 RUN echo 'ALL ALL=(ALL:ALL) NOPASSWD: ALL' > /etc/sudoers.d/nopasswd \
  && chmod 0440 /etc/sudoers.d/nopasswd
